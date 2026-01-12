@@ -121,14 +121,14 @@ material {marker_name}/Marker
     <collision name="collision">
         <geometry>
         <box>
-            <size>{marker_size+0.01} {marker_size+0.01} -0.01</size>
+            <size>{marker_size+0.03} {marker_size+0.03} -0.01</size>
         </box>
         </geometry>
     </collision>
     <visual name="visual">
         <geometry>
         <box>
-            <size>{marker_size+0.01} {marker_size+0.01} -0.01</size>
+            <size>{marker_size+0.03} {marker_size+0.03} -0.01</size>
         </box>
         </geometry>
     </visual>

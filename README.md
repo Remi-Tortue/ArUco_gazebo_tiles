@@ -33,8 +33,6 @@ Then insert the marker model.
 
 
 ## ToDo / new features
-- aruco marker detection python lib.
-- Ros2 node publisher or service to get the aruco marker transform.
 
 ## Contributors
 - **Rémi Porée**
