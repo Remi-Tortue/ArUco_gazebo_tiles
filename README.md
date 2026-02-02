@@ -1,6 +1,6 @@
 # ArUco_gazebo_tiles
-Generate gazebo models of aruco markers + aruco detection
-![Example ArUco Marker Tile](doc/screenshot_gazebo_tile_7x7_0_0_1.png)
+Generate gazebo models of visual markers.
+![Example ArUco Marker Tile](doc/Screenshot_gz_tiles.png)
 
 ## Install
 
@@ -16,7 +16,7 @@ export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:$(pwd)/models # If you’re us
 Generate the tile model :
 ```bash
 python3 generate_gazebo_tiles.py <DICT> <ID> <SIZE_IN_M>
-# python3 generate_gazebo_tiles.py 7x7 0 0.1
+# python3 generate_gazebo_tiles.py DICT_7X7_50 0 0.1
 ```
 
 Visualize the marker tile via :

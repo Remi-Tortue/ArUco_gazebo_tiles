@@ -19,19 +19,36 @@ def main():
     marker_id = int(sys.argv[2])
     marker_size = float(sys.argv[3])  # in meters
 
-    # Map input to OpenCV ArUco dictionary
-    aruco_dict_map = {
-        "4x4": cv2.aruco.DICT_4X4_1000,
-        "5x5": cv2.aruco.DICT_5X5_1000,
-        "6x6": cv2.aruco.DICT_6X6_1000,
-        "7x7": cv2.aruco.DICT_7X7_1000,
+    # Map input to OpenCV marker dictionary
+    marker_dict_map = {
+        "DICT_4X4_50":         cv2.aruco.DICT_4X4_50,
+        "DICT_4X4_100":        cv2.aruco.DICT_4X4_100,
+        "DICT_4X4_250":        cv2.aruco.DICT_4X4_250,
+        "DICT_4X4_1000":       cv2.aruco.DICT_4X4_1000,
+        "DICT_5X5_50":         cv2.aruco.DICT_5X5_50,
+        "DICT_5X5_100":        cv2.aruco.DICT_5X5_100,
+        "DICT_5X5_250":        cv2.aruco.DICT_5X5_250,
+        "DICT_5X5_1000":       cv2.aruco.DICT_5X5_1000,
+        "DICT_6X6_50":         cv2.aruco.DICT_6X6_50,
+        "DICT_6X6_100":        cv2.aruco.DICT_6X6_100,
+        "DICT_6X6_250":        cv2.aruco.DICT_6X6_250,
+        "DICT_6X6_1000":       cv2.aruco.DICT_6X6_1000,
+        "DICT_7X7_50":         cv2.aruco.DICT_7X7_50,
+        "DICT_7X7_100":        cv2.aruco.DICT_7X7_100,
+        "DICT_7X7_250":        cv2.aruco.DICT_7X7_250,
+        "DICT_7X7_1000":       cv2.aruco.DICT_7X7_1000,
+        "DICT_ARUCO_ORIGINAL": cv2.aruco.DICT_ARUCO_ORIGINAL,
+        "DICT_APRILTAG_16h5":  cv2.aruco.DICT_APRILTAG_16h5,
+        "DICT_APRILTAG_25h9":  cv2.aruco.DICT_APRILTAG_25h9,
+        "DICT_APRILTAG_36h10": cv2.aruco.DICT_APRILTAG_36h10,
+        "DICT_APRILTAG_36h11": cv2.aruco.DICT_APRILTAG_36h11
     }
 
-    if dict_str not in aruco_dict_map:
-        raise ValueError("Supported dictionaries: 4x4, 5x5, 6x6, 7x7")
+    if dict_str not in marker_dict_map:
+        raise ValueError("Supported dictionaries:", ", ".join(marker_dict_map.keys()))
 
     aruco_dict = cv2.aruco.getPredefinedDictionary(
-        aruco_dict_map[dict_str]
+        marker_dict_map[dict_str]
     )
 
     marker_size_px = int(marker_size * 1000)  # output image size
@@ -41,7 +58,7 @@ def main():
         marker_size_px
     )
 
-    marker_name = f"aruco_{dict_str}_id{marker_id}_{int(marker_size*1000)}mm"
+    marker_name = f"marker_{dict_str}_id{marker_id}_{int(marker_size*1000)}mm"
     marker_png_file = PKG_PATH + "/markers/" + marker_name + ".png"
     print(f"Saving marker to: {marker_png_file}")
     cv2.imwrite(marker_png_file, marker_img)
